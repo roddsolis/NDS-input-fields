@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/*
-  Con este reset vamos a resolver:
-    👉 Unificar el uso de Custom Properties
-    👉 Problemas de box-model más generales
-    👉 Problemas con imagenes, vídeos e iconos svg
-    👉 Problemas con tipografías y etiquetas input en formularios
-    👉 Unificar la tipografía de todas las etiquetas de una web
-*/
 /* Aquí definimos las Custom properties */
 :root {
   --negro: #393939;
@@ -136,8 +128,6 @@ body {
   -ms-hyphens: auto;
   hyphens: auto;
   /* opcional */
-  font-smooth: always;
-  /* opcional */
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale; }
@@ -145,6 +135,12 @@ body {
 /* Brand colors */
 /* Text colors */
 /* background colors */
+@keyframes bienvenidaBanner {
+  from {
+    top: 0px; }
+  to {
+    top: 80px; } }
+
 body {
   background-color: #f6f9fc;
   display: flex;
@@ -160,16 +156,50 @@ label {
 
 input {
   background-color: white;
-  border: 1px solid #d0e1f1;
+  border: 1px solid #e3edf7;
   height: 56px;
   width: 100%;
   border-radius: 8px;
   color: #122e43;
   padding: 16px;
-  transition: 0.3s ease-in-out; }
+  transition: 0.2s ease-in-out;
+  box-shadow: 0px 0px 0px 0px rgba(0, 162, 255, 0.2); }
   input::placeholder {
     color: #baccde; }
   input:hover {
-    border: 1px solid #bfd4e8;
-    transition: 0.3s ease-in-out;
-    background-color: #f6f9fc; }
+    border: 1px solid #bfd4e8; }
+  input[type=text]:focus {
+    border: 1px solid #00A3FF;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 0px 0px 3px rgba(0, 162, 255, 0.2); }
+  input ::selection {
+    border: 1px solid #00A3FF;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 0px 0px 3px rgba(0, 162, 255, 0.2); }
+
+button {
+  background-color: #ff7a02;
+  padding: 16px;
+  border-radius: 8px;
+  width: 20%; }
+
+.contenedorMensaje {
+  background-color: white;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  color: #60809f;
+  margin: 32px;
+  border-radius: 16px;
+  position: absolute;
+  box-shadow: 0px 30px 20px -20px #d0e1f1; }
+
+.containerInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  animation-name: bienvenidaBanner;
+  animation-duration: 4s; }
